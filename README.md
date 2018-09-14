@@ -21,7 +21,7 @@ css使用vw单位，文本大小可选择使用px，使用transform以支持高�
 
 [http://localhost:4321/vw-rem/index.html](http://localhost:4321/vw-rem/index.html)
 
-css使用rem单位，文本大小可选择使用px，使用transform以支持高清设备的边框1px（包括圆角），可设置容器固定纵横比，可设置页面最大最小宽度
+html的font-size使用vw单位，css使用rem单位，文本大小可选择使用px，使用transform以支持高清设备的边框1px（包括圆角），可设置容器固定纵横比，可设置页面最大最小宽度
 
 
 ## 解析说明 todo
@@ -33,6 +33,8 @@ css使用rem单位，文本大小可选择使用px，使用transform以支持高
 1. `cd rem-vw-layout` 进入项目
 2. `node server` 启动Node服务
 3. 访问上述三个页面
+
+4. 业务代码中样式的调用方式可参考 `./rem/scss/rem.scss` 及  `./vw/scss/vw.scss` 及 `./vw-rem/scss/vw-rem.scss` 三个文件
 
 
 ## DEMO 

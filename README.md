@@ -9,19 +9,31 @@
 
 [http://localhost:4321/rem/index.html](http://localhost:4321/rem/index.html)
 
-使用js动态设置html的font-size，css使用rem单位，文本大小可选择使用px，js设置viewport的scale以支持高清设备的1px，可设置页面最大最小宽度
+使用js动态设置html的font-size，css使用rem单位，文本大小可选择使用px
+
+js设置viewport的scale以支持高清设备的1px
+
+可设置页面最大最小宽度
 
 2. **VW 布局**
 
 [http://localhost:4321/vw/index.html](http://localhost:4321/vw/index.html)
 
-css使用vw单位，文本大小可选择使用px，使用transform以支持高清设备的边框1px（包括圆角），可设置容器固定纵横比，不可设置页面最大最小宽度
+css使用vw单位，文本大小可选择使用px
+
+使用transform以支持高清设备的边框1px（包括圆角），使用 @mixin `./vw/scss/_border.scss`
+
+可设置容器固定纵横比，不可设置页面最大最小宽度
 
 3. **REM + VW 布局**
 
 [http://localhost:4321/vw-rem/index.html](http://localhost:4321/vw-rem/index.html)
 
-html的font-size使用vw单位，css使用rem单位，文本大小可选择使用px，使用transform以支持高清设备的边框1px（包括圆角），可设置容器固定纵横比，可设置页面最大最小宽度
+html的font-size使用vw单位，css使用rem单位，文本大小可选择使用px
+
+使用transform以支持高清设备的边框1px（包括圆角），使用 @mixin `./vw-rem/scss/_border.scss`
+
+可设置容器固定纵横比，可设置页面最大最小宽度
 
 
 ## 解析说明 todo

@@ -36,9 +36,9 @@ html的font-size使用vw单位，css使用rem单位，文本大小可选择使�
 可设置容器固定纵横比，可设置页面最大最小宽度
 
 
-## 解析说明 todo
+## 解析说明 
 
-[解析说明](https://www.cnblogs.com/imwtr/p/9576546.html)
+[解析说明](https://www.cnblogs.com/imwtr/p/9648233.html)
 
 
 ## 使用

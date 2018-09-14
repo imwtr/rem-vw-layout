@@ -46,9 +46,7 @@ html的font-size使用vw单位，css使用rem单位，文本大小可选择使�
 2. `node server` 启动Node服务
 3. 访问上述三个页面
 
-4. 业务代码中样式的调用方式可参考 `./rem/scss/rem.scss` 及  `./vw/scss/vw.scss` 及 `./vw-rem/scss/vw-rem.scss` 三个文件
-
-可在html文件相应位置配置 `data-content-max` 属性来限制容器最大最小宽
+4. 业务代码中样式的调用方式可参考 `./rem/scss/rem.scss` 及  `./vw/scss/vw.scss` 及 `./vw-rem/scss/vw-rem.scss` 三个文件；可在html文件相应位置配置 `data-content-max` 属性来限制容器最大最小宽
 
 
 ## DEMO 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VW布局</title>
+        <meta charset="utf-8">
+        <meta lang="zh-CN">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+        <link rel="stylesheet" href="./css/vw.css">
+    </head>
+
+    <body>
+        <section class="container">
+            <!-- 此处为固定宽高比的例子 -->
+            <header class="header">
+                <div class="header-content">固定纵横比 375 * 150</div>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <span class="icon">60 * 60</span>
+                        <span>导航入口</span>
+                    </li>
+                    <li>
+                        <span class="icon">60 * 60</span>
+                        <span>导航入口</span>
+                    </li>
+                    <li>
+                        <span class="icon f-border-radius">圆角</span>
+                        <span class="f-border">导航入口</span>
+                    </li>
+                </ul>
+            </nav>
+            <main>
+                <h3>填写信息</h3>
+                <div class="info-items">
+                    <p class="info-item">
+                        <span>姓名</span>
+                        <input type="text" class="info-item__name" placeholder="请填写姓名">
+                    </p>
+                    <p class="info-item info-item__tel">
+                        <span>手机</span>
+                        <input type="number" class="info-item__tel" placeholder="请填写手机号">
+                    </p>
+                </div>
+                <h3>个人介绍</h3>
+                <div class="info-items">
+                    <p class="info-item f-p-0">
+                        <textarea class="info-item__intro" placeholder="请填写一段简要的自我介绍"></textarea>
+                    </p>
+                </div>
+                <div class="info-confirm">
+                    <a href="javascript:;" class="info-confirm__btn">确认</a>
+                </div>
+            </main>
+            <footer>375 * 75</footer>
+        </section>
+    </body>
+</html>

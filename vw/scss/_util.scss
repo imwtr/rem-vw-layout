@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* 移动端页面设计稿宽度 */
+$design-width: 750;
+/* 移动端页面设计稿dpr基准值 */
+$design-dpr: 2;
+
+/*
+    vw与px对应关系，100vw为视窗宽度，$vw即为$px对应占多宽
+
+        $px                    $vw
+    -------------    ===    ------------
+    $design-width              100vw
+*/
+
+/* 单位px转化为vw */
+@function px2vw($px) {
+    @return ($px / $design-width) * 100vw;
+}
+
+/* 单位vw转化为px，可用于根据vw单位快速计算原px */
+@function vw2px($vw) {
+    @return #{($vw / 100) * $design-width}px;
+}
+
+/**
+ * 实现固定宽高比
+ * @param  {string} $position: relative      定位方式
+ * @param  {string} $width:    100%          容器宽度
+ * @param  {string} $sub:      null          容器的目标子元素
+ * @param  {number} $aspectX:  1             容器宽
+ * @param  {number} $aspectY:  1             容器高
+ */
+@mixin aspect-ratio(
+    $position: relative,
+    $width: 100%,
+    $sub: null,
+    $aspectX: 1,
+    $aspectY: 1
+) {
+    overflow: hidden;
+    position: $position;
+    padding-top: percentage($aspectY / $aspectX);
+    width: $width;
+    height: 0;
+
+    @if $sub == null {
+        $sub: "*";
+    }
+
+    & > #{$sub} {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* 设置字体大小，不使用rem单位， 根据dpr值分段调整 */
+@mixin font-size($fontSize) {
+    font-size: $fontSize / $design-dpr;
+
+    [data-dpr="2"] & {
+        font-size: $fontSize / $design-dpr * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $fontSize / $design-dpr * 3;
+    }
+}

@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+/* 移动端页面设计稿宽度 */
+$design-width: 750;
+/* 移动端页面设计稿dpr基准值 */
+$design-dpr: 2;
+/* 将移动端页面分为10块 */
+$blocks: 10;
+/* 缩放所支持的设备最小宽度 */
+$min-device-width: 320px;
+/* 缩放所支持的设备最大宽度 */
+$max-device-width: 540px;
+
+/*
+    rem与px对应关系，1rem代表html font-size值（为一块的宽度），$rem即为$px对应占多少块
+
+        $px                    $rem
+    -------------    ===    ------------
+    $design-width              $blocks
+*/
+
+/* html根元素的font-size定义，简单地将页面分为$blocks块，方便计算 */
+@mixin root-font-size() {
+    font-size: 100vw / $blocks;
+
+    body {
+        @include container-min-width();
+    }
+
+    /* 最小宽度定义 */
+    @media screen and (max-width: $min-device-width) {
+        font-size: $min-device-width / $blocks;
+    }
+
+    /* 最大宽度定义 */
+    &[data-content-max] {
+        body[data-content-max] {
+            @include container-max-width();
+        }
+
+        @media screen and (min-width: $max-device-width) {
+            font-size: $max-device-width / $blocks;
+        }
+    }
+}
+
+/* 单位px转化为rem */
+@function px2rem($px) {
+    @return #{$px / $design-width * $blocks}rem;
+}
+
+/* 单位rem转化为px，可用于根据rem单位快速计算原px */
+@function rem2px($rem) {
+    @return #{$rem / $blocks * $design-width}px;
+}
+
+/**
+ * 实现固定宽高比
+ * @param  {string} $position: relative      定位方式
+ * @param  {string} $width:    100%          容器宽度
+ * @param  {string} $sub:      null          容器的目标子元素
+ * @param  {number} $aspectX:  1             容器宽
+ * @param  {number} $aspectY:  1             容器高
+ */
+@mixin aspect-ratio(
+    $position: relative,
+    $width: 100%,
+    $sub: null,
+    $aspectX: 1,
+    $aspectY: 1
+) {
+    overflow: hidden;
+    position: $position;
+    padding-top: percentage($aspectY / $aspectX);
+    width: $width;
+    height: 0;
+
+    @if $sub == null {
+        $sub: "*";
+    }
+
+    & > #{$sub} {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* 设置容器拉伸的最小宽度 */
+@mixin container-min-width() {
+    margin-right: auto;
+    margin-left: auto;
+    min-width: $min-device-width;
+}
+
+/* 设置容器拉伸的最大宽度 */
+@mixin container-max-width() {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: $max-device-width;
+}
+
+/* 设置字体大小，不使用rem单位， 根据dpr值分段调整 */
+@mixin font-size($fontSize) {
+    font-size: $fontSize / $design-dpr;
+
+    [data-dpr="2"] & {
+        font-size: $fontSize / $design-dpr * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $fontSize / $design-dpr * 3;
+    }
+}

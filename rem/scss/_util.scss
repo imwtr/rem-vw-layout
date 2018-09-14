@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+/* 移动端页面设计稿宽度 */
+$design-width: 750;
+/* 移动端页面设计稿dpr基准值 */
+$design-dpr: 2;
+/* 将移动端页面分为10块 */
+$blocks: 10;
+/* 缩放所支持的设备最小宽度 */
+$min-device-width: 320px;
+/* 缩放所支持的设备最大宽度 */
+$max-device-width: 540px;
+
+/*
+    rem与px对应关系，1rem代表在JS中设置的html font-size值（为一块的宽度），$rem即为$px对应占多少块
+
+        $px                    $rem
+    -------------    ===    ------------
+    $design-width              $blocks
+*/
+
+/* 单位px转化为rem */
+@function px2rem($px) {
+    @return #{$px / $design-width * $blocks}rem;
+}
+
+/* 单位rem转化为px，可用于根据rem单位快速计算原px */
+@function rem2px($rem) {
+    @return #{$rem / $blocks * $design-width}px;
+}
+
+/* html根的宽度定义 */
+@mixin root-width() {
+    body {
+        @include container-min-width();
+
+        &[data-content-max] {
+            @include container-max-width();
+        }
+    }
+
+    /* 某些机型虽然设备dpr大于1，但识别不了scale缩放，这里需要重新设置最小宽度防止出现横向滚动条 */
+    &[data-dpr="1"] body {
+        min-width: $min-device-width;
+    }
+}
+
+/* 设置容器拉伸的最小宽度 */
+@mixin container-min-width() {
+    margin-right: auto;
+    margin-left: auto;
+    min-width: $min-device-width;
+
+    @media (-webkit-device-pixel-ratio: 2) {
+        min-width: $min-device-width * 2;
+    }
+
+    @media (-webkit-device-pixel-ratio: 3) {
+        min-width: $min-device-width * 3;
+    }
+}
+
+/* 设置容器拉伸的最大宽度 */
+@mixin container-max-width() {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: $max-device-width;
+
+    @media (-webkit-device-pixel-ratio: 2) {
+        max-width: $max-device-width * 2;
+    }
+
+    @media (-webkit-device-pixel-ratio: 3) {
+        max-width: $max-device-width * 3;
+    }
+}
+
+/* 设置字体大小，不使用rem单位， 根据dpr值分段调整 */
+@mixin font-size($fontSize) {
+    font-size: $fontSize / $design-dpr;
+
+    [data-dpr="2"] & {
+        font-size: $fontSize / $design-dpr * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $fontSize / $design-dpr * 3;
+    }
+}

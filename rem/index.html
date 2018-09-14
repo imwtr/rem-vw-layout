@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REM布局</title>
+        <meta charset="utf-8">
+        <meta lang="zh-CN">
+        <meta name="viewport" data-content-max content="width=device-width,initial-scale=1,user-scalable=no">
+        <link rel="stylesheet" href="./css/rem.css">
+        <script src="./js/rem.min.js"></script>
+        <!-- <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script> -->
+    </head>
+
+    <body data-content-max>
+        <section class="container">
+            <header>375 * 150</header>
+            <nav>
+                <ul>
+                    <li>
+                        <span class="icon">60 * 60</span>
+                        <span>导航入口</span>
+                    </li>
+                    <li>
+                        <span class="icon">60 * 60</span>
+                        <span>导航入口</span>
+                    </li>
+                    <li>
+                        <span class="icon">60 * 60</span>
+                        <span>导航入口</span>
+                    </li>
+                </ul>
+            </nav>
+            <main>
+                <h3>填写信息</h3>
+                <div class="info-items">
+                    <p class="info-item">
+                        <span>姓名</span>
+                        <input type="text" class="info-item__name" placeholder="请填写姓名">
+                    </p>
+                    <p class="info-item">
+                        <span>手机</span>
+                        <input type="number" class="info-item__tel" placeholder="请填写手机号">
+                    </p>
+                </div>
+                <h3>个人介绍</h3>
+                <div class="info-items">
+                    <p class="info-item f-p-0">
+                        <textarea class="info-item__intro" placeholder="请填写一段简要的自我介绍"></textarea>
+                    </p>
+                </div>
+                <div class="info-confirm">
+                    <a href="javascript:;" class="info-confirm__btn">确认</a>
+                </div>
+            </main>
+            <footer>375 * 75</footer>
+        </section>
+    </body>
+</html>

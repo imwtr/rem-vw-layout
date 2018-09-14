@@ -32,11 +32,28 @@ css使用rem单位，文本大小可选择使用px，使用transform以支持高
 ## 使用
 1. `cd rem-vw-layout` 进入项目
 2. `node server` 启动Node服务
-3. 访问上述四个页面
+3. 访问上述三个页面
 
 
-## DEMO todo
-![REM](./message.gif)
-![VW](./message-ssr.gif)
-![REM + VW](./home.gif)
+## DEMO 
+1. REM 不限制最大宽度
+![REM](./gif/rem.gif)
+
+2. REM 限制最大宽度（计算基准与容器）
+![REM](./gif/rem-max.gif)
+
+3. REM 限制最大宽度（仅计算基准），某种流式效果
+![REM](./gif/rem-flow.gif)
+
+4. VW 不限制最大宽度
+![VW](./gif/vw.gif)
+
+5. REM + VW 不限制最大宽度
+![REM + VW](./gif/rem-vw.gif)
+
+6. REM + VW 限制最大宽度（计算基准与容器）
+![REM + VW](./gif/rem-vw-max.gif)
+
+7. REM + VW 限制最大宽度（仅计算基准），某种流式效果
+![REM + VW](./gif/rem-vw-flow.gif)
 
